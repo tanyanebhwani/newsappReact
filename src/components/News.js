@@ -40,9 +40,7 @@ const News = (props)=>{
         setPage(page+1) 
         let data = await fetch(url);
         let parsedData = await data.json()
-        setArticles(articles.concat(parsedData.articles))
-        console.log(articles.length);
-        console.log();
+        setArticles(articles.concat(parsedData.articles));
         setTotalResults(parsedData.totalResults)
       };
  
