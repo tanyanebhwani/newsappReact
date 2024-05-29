@@ -23,6 +23,7 @@ const News = (props)=>{
         props.setProgress(70);
         setArticles(articles.concat(parsedData.articles))
         setTotalResults(parsedData.totalResults)
+        console.log("Total Results:"+parsedData.totalResults);
         setLoading(false)
         props.setProgress(100);
     }
@@ -41,7 +42,7 @@ const News = (props)=>{
         let data = await fetch(url);
         let parsedData = await data.json()
         setArticles(articles.concat(parsedData.articles));
-        setTotalResults(parsedData.totalResults)
+        console.log("Length of articles:",articles.length);
       };
  
         return (
@@ -51,7 +52,7 @@ const News = (props)=>{
                 <InfiniteScroll
                     dataLength={articles.length}
                     next={fetchMoreData}
-                    hasMore={articles.length <= totalResults}
+                    hasMore={articles.length !== totalResults}
                     loader={<Spinner/>}
                 > 
                     <div className="container">
