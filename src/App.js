@@ -6,7 +6,6 @@ import LoadingBar from 'react-top-loading-bar'
 import { useState } from 'react'
 const App = ()=> {
   const pageSize = 5;
-  const apiKey = process.env.REACT_APP_NEWS_API;
   const [progress, setProgress] = useState(0);
     const router = createBrowserRouter([
       {
@@ -15,7 +14,7 @@ const App = ()=> {
         color='#f11946'
         progress={progress}
         height={3}
-      /><News setProgress={setProgress} apiKey={apiKey} key="general" pageSize={pageSize} country="in" /></>
+      /><News setProgress={setProgress} key="general" category="general" pageSize={pageSize} country="in" /></>
       },
       {
         path:"/Business",
@@ -23,7 +22,7 @@ const App = ()=> {
         color='#f11946'
         progress={progress}
         height={3}
-      /><News setProgress={setProgress} apiKey={apiKey} key="business" pageSize={pageSize} country="in" category="business" /></>
+      /><News setProgress={setProgress}  key="business" pageSize={pageSize} country="in" category="business" /></>
       },
       {
         path:"/Entertainment",
@@ -31,7 +30,7 @@ const App = ()=> {
         color='#f11946'
         progress={progress}
         height={3}
-      /><News setProgress={setProgress} apiKey={apiKey} key="entertainment" pageSize={pageSize} country="in" category="entertainment" /></>
+      /><News setProgress={setProgress}  key="entertainment" pageSize={pageSize} country="in" category="entertainment" /></>
       },
       {
         path:"/General",
@@ -39,7 +38,7 @@ const App = ()=> {
         color='#f11946'
         progress={progress}
         height={3}
-      /><News setProgress={setProgress} apiKey={apiKey} key="general" pageSize={pageSize} country="in" category="general" /></>
+      /><News setProgress={setProgress}  key="general" pageSize={pageSize} country="in" category="general" /></>
       },
       {
         path:"/Health",
@@ -47,7 +46,7 @@ const App = ()=> {
         color='#f11946'
         progress={progress}
         height={3}
-      /><News setProgress={setProgress} apiKey={apiKey} key="health" pageSize={pageSize} country="in" category="health" /></>
+      /><News setProgress={setProgress}  key="health" pageSize={pageSize} country="in" category="health" /></>
       },
       {
         path:"/Science",
@@ -55,7 +54,7 @@ const App = ()=> {
         color='#f11946'
         progress={progress}
         height={3}
-      /><News setProgress={setProgress} apiKey={apiKey} key="science" pageSize={pageSize} country="in" category="science" /></>
+      /><News setProgress={setProgress}  key="science" pageSize={pageSize} country="in" category="science" /></>
       },
       {
         path:"/Space",
@@ -63,7 +62,7 @@ const App = ()=> {
         color='#f11946'
         progress={progress}
         height={3}
-      /><News setProgress={setProgress} apiKey={apiKey} key="space" pageSize={pageSize} country="in" category="space" /></>
+      /><News setProgress={setProgress}  key="space" pageSize={pageSize} country="in" category="space" /></>
       },
       {
         path:"/Technology",
@@ -71,7 +70,7 @@ const App = ()=> {
         color='#f11946'
         progress={progress}
         height={3}
-      /><News setProgress={setProgress} apiKey={apiKey} key="technology" pageSize={pageSize} country="in" category="technology" /></>
+      /><News setProgress={setProgress}  key="technology" pageSize={pageSize} country="in" category="technology" /></>
       }
     ])
     return (
