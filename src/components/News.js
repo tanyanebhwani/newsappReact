@@ -21,7 +21,7 @@ const News = (props)=>{
         props.setProgress(30);
         let parsedData = await data.json()
         props.setProgress(70);
-        setArticles(parsedData.articles)
+        setArticles(articles.concat(parsedData.articles))
         setTotalResults(parsedData.totalResults)
         setLoading(false)
         props.setProgress(100);
@@ -34,12 +34,15 @@ const News = (props)=>{
     }, [])
 
 
-    const fetchMoreData = async () => {   
-      const url = `https://news-proxy.onrender.com/proxyNewsApi/country/${props.country}/category/${props.category}/page/${page}/pageSize/${props.pageSize}`;
+    const fetchMoreData = async () => {
+      console.log(page+1);   
+      const url = `https://news-proxy.onrender.com/proxyNewsApi/country/${props.country}/category/${props.category}/page/${page+1}/pageSize/${props.pageSize}`;
         setPage(page+1) 
         let data = await fetch(url);
         let parsedData = await data.json()
         setArticles(articles.concat(parsedData.articles))
+        console.log(articles.length);
+        console.log();
         setTotalResults(parsedData.totalResults)
       };
  
@@ -50,7 +53,7 @@ const News = (props)=>{
                 <InfiniteScroll
                     dataLength={articles.length}
                     next={fetchMoreData}
-                    hasMore={articles.length !== totalResults}
+                    hasMore={articles.length <= totalResults}
                     loader={<Spinner/>}
                 > 
                     <div className="container">
