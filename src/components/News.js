@@ -30,12 +30,12 @@ const News = (props)=>{
     useEffect(() => {
         document.title = `${capitalizeFirstLetter(props.category)} - NewsMonkey`;
         updateNews(); 
+        console.log(page+1);
         // eslint-disable-next-line
     }, [])
 
 
-    const fetchMoreData = async () => {
-      console.log(page+1);   
+    const fetchMoreData = async () => {   
       const url = `https://news-proxy.onrender.com/proxyNewsApi/country/${props.country}/category/${props.category}/page/${page+1}/pageSize/${props.pageSize}`;
         setPage(page+1) 
         let data = await fetch(url);
